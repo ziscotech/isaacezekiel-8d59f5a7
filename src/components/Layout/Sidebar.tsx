@@ -114,7 +114,7 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className="w-64 bg-white shadow-lg h-screen overflow-y-auto">
+    <div className="w-64 bg-white shadow-lg h-screen overflow-y-auto hidden lg:block">
       {/* Logo */}
       <div className="p-6 border-b border-border">
         <div className="flex items-center">
