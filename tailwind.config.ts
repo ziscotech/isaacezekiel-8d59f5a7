@@ -26,7 +26,8 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					hover: 'hsl(var(--primary-hover))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -51,6 +52,20 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				// Lendsqr specific colors
+				lendsqr: {
+					teal: 'hsl(var(--lendsqr-teal))',
+					navy: 'hsl(var(--lendsqr-navy))',
+					'light-blue': 'hsl(var(--lendsqr-light-blue))',
+					gray: 'hsl(var(--lendsqr-gray))',
+					'light-gray': 'hsl(var(--lendsqr-light-gray))'
+				},
+				status: {
+					active: 'hsl(var(--status-active))',
+					inactive: 'hsl(var(--status-inactive))',
+					pending: 'hsl(var(--status-pending))',
+					blacklisted: 'hsl(var(--status-blacklisted))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
