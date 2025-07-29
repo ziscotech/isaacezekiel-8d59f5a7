@@ -89,31 +89,167 @@ const UsersTable: React.FC<UsersTableProps> = ({ users, onUserAction }) => {
             <th className="text-left py-4 px-6 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
               <div className="flex items-center space-x-2">
                 <span>Username</span>
-                <Filter className="w-3 h-3" />
+                <button 
+                  onClick={() => setShowFilters(showFilters === 'username' ? null : 'username')}
+                  className="relative"
+                >
+                  <Filter className="w-3 h-3" />
+                  {showFilters === 'username' && (
+                    <div className="absolute top-6 left-0 bg-white border border-border rounded-lg shadow-lg p-4 z-20 w-56">
+                      <div className="space-y-4">
+                        <div>
+                          <label className="block text-sm font-medium text-lendsqr-navy mb-1">Username</label>
+                          <input 
+                            type="text" 
+                            placeholder="User"
+                            className="w-full p-2 border border-border rounded text-sm"
+                          />
+                        </div>
+                        <div className="flex space-x-2">
+                          <button className="px-4 py-2 border border-border text-lendsqr-navy rounded text-sm">
+                            Reset
+                          </button>
+                          <button className="px-4 py-2 bg-primary text-white rounded text-sm">
+                            Filter
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </button>
               </div>
             </th>
             <th className="text-left py-4 px-6 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
               <div className="flex items-center space-x-2">
                 <span>Email</span>
-                <Filter className="w-3 h-3" />
+                <button 
+                  onClick={() => setShowFilters(showFilters === 'email' ? null : 'email')}
+                  className="relative"
+                >
+                  <Filter className="w-3 h-3" />
+                  {showFilters === 'email' && (
+                    <div className="absolute top-6 left-0 bg-white border border-border rounded-lg shadow-lg p-4 z-20 w-56">
+                      <div className="space-y-4">
+                        <div>
+                          <label className="block text-sm font-medium text-lendsqr-navy mb-1">Email</label>
+                          <input 
+                            type="email" 
+                            placeholder="Email"
+                            className="w-full p-2 border border-border rounded text-sm"
+                          />
+                        </div>
+                        <div className="flex space-x-2">
+                          <button className="px-4 py-2 border border-border text-lendsqr-navy rounded text-sm">
+                            Reset
+                          </button>
+                          <button className="px-4 py-2 bg-primary text-white rounded text-sm">
+                            Filter
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </button>
               </div>
             </th>
             <th className="text-left py-4 px-6 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
               <div className="flex items-center space-x-2">
                 <span>Phone Number</span>
-                <Filter className="w-3 h-3" />
+                <button 
+                  onClick={() => setShowFilters(showFilters === 'phone' ? null : 'phone')}
+                  className="relative"
+                >
+                  <Filter className="w-3 h-3" />
+                  {showFilters === 'phone' && (
+                    <div className="absolute top-6 left-0 bg-white border border-border rounded-lg shadow-lg p-4 z-20 w-56">
+                      <div className="space-y-4">
+                        <div>
+                          <label className="block text-sm font-medium text-lendsqr-navy mb-1">Phone Number</label>
+                          <input 
+                            type="tel" 
+                            placeholder="Phone Number"
+                            className="w-full p-2 border border-border rounded text-sm"
+                          />
+                        </div>
+                        <div className="flex space-x-2">
+                          <button className="px-4 py-2 border border-border text-lendsqr-navy rounded text-sm">
+                            Reset
+                          </button>
+                          <button className="px-4 py-2 bg-primary text-white rounded text-sm">
+                            Filter
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </button>
               </div>
             </th>
             <th className="text-left py-4 px-6 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
               <div className="flex items-center space-x-2">
                 <span>Date Joined</span>
-                <Filter className="w-3 h-3" />
+                <button 
+                  onClick={() => setShowFilters(showFilters === 'date' ? null : 'date')}
+                  className="relative"
+                >
+                  <Filter className="w-3 h-3" />
+                  {showFilters === 'date' && (
+                    <div className="absolute top-6 left-0 bg-white border border-border rounded-lg shadow-lg p-4 z-20 w-56">
+                      <div className="space-y-4">
+                        <div>
+                          <label className="block text-sm font-medium text-lendsqr-navy mb-1">Date</label>
+                          <input 
+                            type="date" 
+                            className="w-full p-2 border border-border rounded text-sm"
+                          />
+                        </div>
+                        <div className="flex space-x-2">
+                          <button className="px-4 py-2 border border-border text-lendsqr-navy rounded text-sm">
+                            Reset
+                          </button>
+                          <button className="px-4 py-2 bg-primary text-white rounded text-sm">
+                            Filter
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </button>
               </div>
             </th>
             <th className="text-left py-4 px-6 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
               <div className="flex items-center space-x-2">
                 <span>Status</span>
-                <Filter className="w-3 h-3" />
+                <button 
+                  onClick={() => setShowFilters(showFilters === 'status' ? null : 'status')}
+                  className="relative"
+                >
+                  <Filter className="w-3 h-3" />
+                  {showFilters === 'status' && (
+                    <div className="absolute top-6 left-0 bg-white border border-border rounded-lg shadow-lg p-4 z-20 w-56">
+                      <div className="space-y-4">
+                        <div>
+                          <label className="block text-sm font-medium text-lendsqr-navy mb-1">Status</label>
+                          <select className="w-full p-2 border border-border rounded text-sm">
+                            <option>Select</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                            <option>Pending</option>
+                            <option>Blacklisted</option>
+                          </select>
+                        </div>
+                        <div className="flex space-x-2">
+                          <button className="px-4 py-2 border border-border text-lendsqr-navy rounded text-sm">
+                            Reset
+                          </button>
+                          <button className="px-4 py-2 bg-primary text-white rounded text-sm">
+                            Filter
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </button>
               </div>
             </th>
             <th className="text-left py-4 px-6 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
