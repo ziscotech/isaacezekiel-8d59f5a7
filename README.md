@@ -314,8 +314,11 @@ This is an assessment project, but the code follows industry best practices for 
 ## 📞 Contact
 
 **Isaac Ezekiel**
-- **Email:** isaac.ezekiel@example.com
-- **LinkedIn:** [linkedin.com/in/isaac-ezekiel](https://linkedin.com/in/isaac-ezekiel)
+- **Email:** isaacanietie87@gmail.com
+- **LinkedIn:** www.linkedin.com/in/
+isaac-ezekiel-716039278
+Vanity URL name
+
 - **Portfolio:** [isaac-ezekiel.dev](https://isaac-ezekiel.dev)
 
 ## 📄 License
