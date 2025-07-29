@@ -20,6 +20,7 @@ interface UsersTableProps {
 
 const UsersTable: React.FC<UsersTableProps> = ({ users, onUserAction }) => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [showFilters, setShowFilters] = useState<string | null>(null);
 
   const getStatusBadge = (status: User['status']) => {
     const statusStyles = {
@@ -256,9 +257,55 @@ const Users: React.FC = () => {
     <div className="p-6">
       <h1 className="text-2xl font-bold text-lendsqr-navy mb-6">Users</h1>
       
-      {/* Stats Cards - Same as Dashboard */}
+      {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        {/* Stats cards would go here - simplified for now */}
+        <div className="lendsqr-card p-5">
+          <div className="flex items-center space-x-3 mb-3">
+            <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+              <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <span className="text-xs font-medium text-lendsqr-gray uppercase tracking-wide">Users</span>
+          </div>
+          <div className="text-2xl font-bold text-lendsqr-navy">2,453</div>
+        </div>
+
+        <div className="lendsqr-card p-5">
+          <div className="flex items-center space-x-3 mb-3">
+            <div className="w-10 h-10 bg-status-active/10 rounded-full flex items-center justify-center">
+              <svg className="w-5 h-5 text-status-active" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <span className="text-xs font-medium text-lendsqr-gray uppercase tracking-wide">Active Users</span>
+          </div>
+          <div className="text-2xl font-bold text-lendsqr-navy">2,453</div>
+        </div>
+
+        <div className="lendsqr-card p-5">
+          <div className="flex items-center space-x-3 mb-3">
+            <div className="w-10 h-10 bg-orange-100 rounded-full flex items-center justify-center">
+              <svg className="w-5 h-5 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"/>
+              </svg>
+            </div>
+            <span className="text-xs font-medium text-lendsqr-gray uppercase tracking-wide">Users with Loans</span>
+          </div>
+          <div className="text-2xl font-bold text-lendsqr-navy">12,453</div>
+        </div>
+
+        <div className="lendsqr-card p-5">
+          <div className="flex items-center space-x-3 mb-3">
+            <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+              <svg className="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+              </svg>
+            </div>
+            <span className="text-xs font-medium text-lendsqr-gray uppercase tracking-wide">Users with Savings</span>
+          </div>
+          <div className="text-2xl font-bold text-lendsqr-navy">102,453</div>
+        </div>
       </div>
 
       {/* Users Table */}

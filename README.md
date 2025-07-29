@@ -6,7 +6,7 @@
 
 ## 🚀 Live Demo
 
-**Deployed App:** `https://isaacezekiel.lovable.app/
+**Deployed App:** `https://isaac-ezekiel-lendsqr-fe-test.lovable.app`
 
 ## 📋 Project Overview
 
