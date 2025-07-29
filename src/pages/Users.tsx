@@ -52,74 +52,101 @@ const UsersTable: React.FC<UsersTableProps> = ({ users, onUserAction }) => {
       <table className="w-full">
         <thead>
           <tr className="border-b border-border">
-            <th className="text-left py-4 px-4 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
-              <div className="flex items-center space-x-1">
+            <th className="text-left py-4 px-6 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
+              <div className="flex items-center space-x-2">
                 <span>Organization</span>
-                <Filter className="w-3 h-3" />
+                <button 
+                  onClick={() => setShowFilters(showFilters === 'organization' ? null : 'organization')}
+                  className="relative"
+                >
+                  <Filter className="w-3 h-3" />
+                  {showFilters === 'organization' && (
+                    <div className="absolute top-6 left-0 bg-white border border-border rounded-lg shadow-lg p-4 z-20 w-56">
+                      <div className="space-y-4">
+                        <div>
+                          <label className="block text-sm font-medium text-lendsqr-navy mb-1">Organization</label>
+                          <select className="w-full p-2 border border-border rounded text-sm">
+                            <option>Select</option>
+                            <option>Lendsqr</option>
+                            <option>Irorun</option>
+                            <option>Lendstar</option>
+                          </select>
+                        </div>
+                        <div className="flex space-x-2">
+                          <button className="px-4 py-2 border border-border text-lendsqr-navy rounded text-sm">
+                            Reset
+                          </button>
+                          <button className="px-4 py-2 bg-primary text-white rounded text-sm">
+                            Filter
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </button>
               </div>
             </th>
-            <th className="text-left py-4 px-4 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
-              <div className="flex items-center space-x-1">
+            <th className="text-left py-4 px-6 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
+              <div className="flex items-center space-x-2">
                 <span>Username</span>
                 <Filter className="w-3 h-3" />
               </div>
             </th>
-            <th className="text-left py-4 px-4 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
-              <div className="flex items-center space-x-1">
+            <th className="text-left py-4 px-6 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
+              <div className="flex items-center space-x-2">
                 <span>Email</span>
                 <Filter className="w-3 h-3" />
               </div>
             </th>
-            <th className="text-left py-4 px-4 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
-              <div className="flex items-center space-x-1">
+            <th className="text-left py-4 px-6 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
+              <div className="flex items-center space-x-2">
                 <span>Phone Number</span>
                 <Filter className="w-3 h-3" />
               </div>
             </th>
-            <th className="text-left py-4 px-4 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
-              <div className="flex items-center space-x-1">
+            <th className="text-left py-4 px-6 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
+              <div className="flex items-center space-x-2">
                 <span>Date Joined</span>
                 <Filter className="w-3 h-3" />
               </div>
             </th>
-            <th className="text-left py-4 px-4 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
-              <div className="flex items-center space-x-1">
+            <th className="text-left py-4 px-6 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
+              <div className="flex items-center space-x-2">
                 <span>Status</span>
                 <Filter className="w-3 h-3" />
               </div>
             </th>
-            <th className="text-left py-4 px-4 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
-              Actions
+            <th className="text-left py-4 px-6 text-xs font-medium text-lendsqr-gray uppercase tracking-wider">
             </th>
           </tr>
         </thead>
         <tbody>
           {users.map((user) => (
-            <tr key={user.id} className="border-b border-border hover:bg-lendsqr-light-gray/50">
-              <td className="py-4 px-4 text-sm text-lendsqr-navy">{user.organization}</td>
-              <td className="py-4 px-4 text-sm text-lendsqr-navy">{user.username}</td>
-              <td className="py-4 px-4 text-sm text-lendsqr-navy">{user.email}</td>
-              <td className="py-4 px-4 text-sm text-lendsqr-navy">{user.phoneNumber}</td>
-              <td className="py-4 px-4 text-sm text-lendsqr-navy">{formatDate(user.dateJoined)}</td>
-              <td className="py-4 px-4">{getStatusBadge(user.status)}</td>
-              <td className="py-4 px-4 relative">
+            <tr key={user.id} className="border-b border-border hover:bg-lendsqr-light-gray/30 transition-colors">
+              <td className="py-4 px-6 text-sm text-lendsqr-navy">{user.organization}</td>
+              <td className="py-4 px-6 text-sm text-lendsqr-navy">{user.username}</td>
+              <td className="py-4 px-6 text-sm text-lendsqr-navy">{user.email}</td>
+              <td className="py-4 px-6 text-sm text-lendsqr-navy">{user.phoneNumber}</td>
+              <td className="py-4 px-6 text-sm text-lendsqr-navy">{formatDate(user.dateJoined)}</td>
+              <td className="py-4 px-6">{getStatusBadge(user.status)}</td>
+              <td className="py-4 px-6 relative">
                 <button
                   onClick={() => setActiveDropdown(activeDropdown === user.id ? null : user.id)}
-                  className="p-1 hover:bg-lendsqr-light-gray rounded"
+                  className="p-2 hover:bg-lendsqr-light-gray rounded transition-colors"
                 >
                   <MoreVertical className="w-4 h-4 text-lendsqr-gray" />
                 </button>
                 
                 {activeDropdown === user.id && (
-                  <div className="absolute right-0 top-full mt-1 bg-white border border-border rounded-lg shadow-lg z-10 min-w-[160px]">
+                  <div className="absolute right-0 top-full mt-1 bg-white border border-border rounded-md shadow-lg z-10 min-w-[160px]">
                     <button
                       onClick={() => {
                         onUserAction(user.id, 'view');
                         setActiveDropdown(null);
                       }}
-                      className="flex items-center w-full px-4 py-2 text-sm text-lendsqr-navy hover:bg-lendsqr-light-gray"
+                      className="flex items-center w-full px-4 py-3 text-sm text-lendsqr-navy hover:bg-lendsqr-light-gray transition-colors"
                     >
-                      <Eye className="w-4 h-4 mr-2" />
+                      <Eye className="w-4 h-4 mr-3" />
                       View Details
                     </button>
                     <button
@@ -127,9 +154,9 @@ const UsersTable: React.FC<UsersTableProps> = ({ users, onUserAction }) => {
                         onUserAction(user.id, 'blacklist');
                         setActiveDropdown(null);
                       }}
-                      className="flex items-center w-full px-4 py-2 text-sm text-lendsqr-navy hover:bg-lendsqr-light-gray"
+                      className="flex items-center w-full px-4 py-3 text-sm text-lendsqr-navy hover:bg-lendsqr-light-gray transition-colors"
                     >
-                      <UserX className="w-4 h-4 mr-2" />
+                      <UserX className="w-4 h-4 mr-3" />
                       Blacklist User
                     </button>
                     <button
@@ -137,9 +164,9 @@ const UsersTable: React.FC<UsersTableProps> = ({ users, onUserAction }) => {
                         onUserAction(user.id, 'activate');
                         setActiveDropdown(null);
                       }}
-                      className="flex items-center w-full px-4 py-2 text-sm text-lendsqr-navy hover:bg-lendsqr-light-gray"
+                      className="flex items-center w-full px-4 py-3 text-sm text-lendsqr-navy hover:bg-lendsqr-light-gray transition-colors"
                     >
-                      <UserCheck className="w-4 h-4 mr-2" />
+                      <UserCheck className="w-4 h-4 mr-3" />
                       Activate User
                     </button>
                   </div>
@@ -313,37 +340,53 @@ const Users: React.FC = () => {
         <UsersTable users={users} onUserAction={handleUserAction} />
         
         {/* Pagination */}
-        <div className="flex items-center justify-between px-6 py-4 border-t border-border">
-          <div className="text-sm text-lendsqr-gray">
-            Showing {((currentPage - 1) * usersPerPage) + 1} to {Math.min(currentPage * usersPerPage, totalUsers)} of {totalUsers} entries
+        <div className="flex items-center justify-between px-6 py-6 border-t border-border">
+          <div className="flex items-center space-x-4">
+            <span className="text-sm text-lendsqr-navy">Showing</span>
+            <select className="px-3 py-1 border border-border rounded text-sm bg-white">
+              <option>100</option>
+              <option>50</option>
+              <option>25</option>
+              <option>10</option>
+            </select>
+            <span className="text-sm text-lendsqr-navy">out of 100</span>
           </div>
           
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-3">
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
               className="p-2 text-lendsqr-gray hover:text-lendsqr-navy disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-5 h-5" />
             </button>
             
-            <div className="flex space-x-1">
-              {[...Array(Math.min(5, totalPages))].map((_, i) => {
-                const page = i + 1;
-                return (
-                  <button
-                    key={page}
-                    onClick={() => handlePageChange(page)}
-                    className={`px-3 py-1 rounded text-sm ${
-                      currentPage === page
-                        ? 'bg-primary text-white'
-                        : 'text-lendsqr-gray hover:text-lendsqr-navy'
-                    }`}
-                  >
-                    {page}
-                  </button>
-                );
-              })}
+            <div className="flex items-center space-x-1">
+              {[1, 2, 3].map((page) => (
+                <button
+                  key={page}
+                  onClick={() => handlePageChange(page)}
+                  className={`w-8 h-8 flex items-center justify-center rounded text-sm font-medium ${
+                    currentPage === page
+                      ? 'bg-primary text-white'
+                      : 'text-lendsqr-gray hover:text-lendsqr-navy hover:bg-lendsqr-light-gray'
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+              
+              <span className="px-2 text-lendsqr-gray">...</span>
+              
+              {[15, 16].map((page) => (
+                <button
+                  key={page}
+                  onClick={() => handlePageChange(page)}
+                  className="w-8 h-8 flex items-center justify-center rounded text-sm font-medium text-lendsqr-gray hover:text-lendsqr-navy hover:bg-lendsqr-light-gray"
+                >
+                  {page}
+                </button>
+              ))}
             </div>
             
             <button
@@ -351,7 +394,7 @@ const Users: React.FC = () => {
               disabled={currentPage === totalPages}
               className="p-2 text-lendsqr-gray hover:text-lendsqr-navy disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-5 h-5" />
             </button>
           </div>
         </div>

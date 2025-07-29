@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Star, StarOff } from 'lucide-react';
-import { apiService, User } from '../services/api';
+import { ArrowLeft, Star, User } from 'lucide-react';
+import { apiService, User as UserType } from '../services/api';
 import { useToast } from '../hooks/use-toast';
 
 const UserDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserType | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('General Details');
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const UserDetails: React.FC = () => {
     }
   };
 
-  const handleStatusChange = async (newStatus: User['status']) => {
+  const handleStatusChange = async (newStatus: UserType['status']) => {
     if (!user) return;
     
     try {
@@ -54,7 +54,7 @@ const UserDetails: React.FC = () => {
     }
   };
 
-  const getStatusBadge = (status: User['status']) => {
+  const getStatusBadge = (status: UserType['status']) => {
     const statusStyles = {
       Active: 'bg-status-active/10 text-status-active',
       Inactive: 'bg-status-inactive/10 text-status-inactive',
@@ -170,11 +170,10 @@ const UserDetails: React.FC = () => {
               <p className="text-sm text-lendsqr-gray mb-2">User's Tier</p>
               <div className="flex items-center">
                 {[...Array(3)].map((_, i) => (
-                  i < user.tier ? (
-                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                  ) : (
-                    <StarOff key={i} className="w-4 h-4 text-gray-300" />
-                  )
+                  <Star 
+                    key={i} 
+                    className={`w-4 h-4 ${i < user.tier ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} 
+                  />
                 ))}
               </div>
             </div>
