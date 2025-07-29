@@ -263,7 +263,7 @@ VITE_APP_ENV=production
 
 ## 🎥 Video Demo
 
-**Loom Video:** [3-minute walkthrough](https://loom.com/share/your-video-id)
+**Loom Video:** https://www.loom.com/share/bf8ad3ac95a643b89e120499324fe33d?sid=a9672106-b482-4d78-a12c-b4c1bbe7ca42
 
 The video demonstrates:
 1. **Login Flow** - Authentication and validation
