@@ -319,7 +319,7 @@ This is an assessment project, but the code follows industry best practices for 
 isaac-ezekiel-716039278
 Vanity URL name
 
-- **Portfolio:** [isaac-ezekiel.dev](https://isaac-ezekiel.dev)
+- **Portfolio:**https://v0-isaac-anietie-cv.vercel.app/
 
 ## 📄 License
 
