@@ -23,10 +23,17 @@ import {
   Receipt,
   Coins,
   Banknote,
-  LogOut
+  LogOut,
+  X
 } from 'lucide-react';
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+  isOpen: boolean;
+  onClose: () => void;
+  isMobile: boolean;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, isMobile }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -114,9 +121,34 @@ const Sidebar: React.FC = () => {
   };
 
   return (
-    <div className="w-64 bg-white shadow-lg h-screen overflow-y-auto hidden lg:block">
-      {/* Logo */}
-      <div className="p-6 border-b border-border">
+    <>
+      {/* Mobile Overlay */}
+      {isMobile && isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40"
+          onClick={onClose}
+        />
+      )}
+
+      {/* Sidebar */}
+      <div className={`
+        ${isMobile ? 'fixed' : 'relative'}
+        ${isMobile && !isOpen ? '-translate-x-full' : 'translate-x-0'}
+        ${isMobile ? 'z-50' : 'hidden lg:block'}
+        w-64 bg-white shadow-lg h-screen overflow-y-auto transition-transform duration-300 ease-in-out
+      `}>
+        {/* Mobile Close Button */}
+        {isMobile && (
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 p-2 text-lendsqr-gray hover:text-lendsqr-navy z-10"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        )}
+
+        {/* Logo */}
+        <div className="p-6 border-b border-border">
         <div className="flex items-center">
           <div className="w-8 h-8 bg-primary rounded-sm flex items-center justify-center mr-2">
             <span className="text-white font-bold text-lg">L</span>
@@ -150,6 +182,7 @@ const Sidebar: React.FC = () => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 

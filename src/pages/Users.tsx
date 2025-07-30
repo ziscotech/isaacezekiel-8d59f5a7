@@ -421,7 +421,7 @@ const Users: React.FC = () => {
       <h1 className="text-2xl font-bold text-lendsqr-navy mb-6">Users</h1>
       
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 md:mb-8">
         <div className="lendsqr-card p-5">
           <div className="flex items-center space-x-3 mb-3">
             <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">

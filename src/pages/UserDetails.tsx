@@ -118,9 +118,9 @@ const UserDetails: React.FC = () => {
   }
 
   return (
-    <div className="p-6">
+    <div className="p-4 md:p-6">
       {/* Header */}
-      <div className="flex items-center mb-6">
+      <div className="flex items-center mb-4 md:mb-6">
         <button
           onClick={() => navigate('/users')}
           className="flex items-center text-lendsqr-gray hover:text-lendsqr-navy mr-4"
@@ -130,18 +130,18 @@ const UserDetails: React.FC = () => {
         </button>
       </div>
 
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-lendsqr-navy">User Details</h1>
-        <div className="flex space-x-3">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 md:mb-6 gap-4">
+        <h1 className="text-xl md:text-2xl font-bold text-lendsqr-navy">User Details</h1>
+        <div className="flex flex-col sm:flex-row w-full sm:w-auto space-y-2 sm:space-y-0 sm:space-x-3">
           <button
             onClick={() => handleStatusChange('Blacklisted')}
-            className="px-4 py-2 border border-destructive text-destructive hover:bg-destructive hover:text-white rounded-lg transition-colors"
+            className="px-4 py-2 border border-destructive text-destructive hover:bg-destructive hover:text-white rounded-lg transition-colors text-sm md:text-base"
           >
             BLACKLIST USER
           </button>
           <button
             onClick={() => handleStatusChange('Active')}
-            className="px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded-lg transition-colors"
+            className="px-4 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded-lg transition-colors text-sm md:text-base"
           >
             ACTIVATE USER
           </button>
@@ -149,26 +149,26 @@ const UserDetails: React.FC = () => {
       </div>
 
       {/* User Overview Card */}
-      <div className="lendsqr-card p-6 mb-6">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-6">
+      <div className="lendsqr-card p-4 md:p-6 mb-4 md:mb-6">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6 w-full lg:w-auto">
             {/* Avatar */}
-            <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center">
-              <span className="text-white text-2xl font-bold">
+            <div className="w-16 h-16 md:w-20 md:h-20 bg-primary rounded-full flex items-center justify-center">
+              <span className="text-white text-xl md:text-2xl font-bold">
                 {user.fullName.charAt(0)}
               </span>
             </div>
             
             {/* User Info */}
-            <div className="border-r border-border pr-6">
-              <h2 className="text-xl font-bold text-lendsqr-navy mb-1">{user.fullName}</h2>
+            <div className="md:border-r border-border md:pr-6 text-center md:text-left">
+              <h2 className="text-lg md:text-xl font-bold text-lendsqr-navy mb-1">{user.fullName}</h2>
               <p className="text-lendsqr-gray">{user.username}</p>
             </div>
             
             {/* User Tier */}
-            <div className="border-r border-border pr-6">
+            <div className="md:border-r border-border md:pr-6 text-center md:text-left">
               <p className="text-sm text-lendsqr-gray mb-2">User's Tier</p>
-              <div className="flex items-center">
+              <div className="flex items-center justify-center md:justify-start">
                 {[...Array(3)].map((_, i) => (
                   <Star 
                     key={i} 
@@ -179,8 +179,8 @@ const UserDetails: React.FC = () => {
             </div>
             
             {/* Account Balance */}
-            <div>
-              <p className="text-xl font-bold text-lendsqr-navy mb-1">
+            <div className="text-center md:text-left">
+              <p className="text-lg md:text-xl font-bold text-lendsqr-navy mb-1">
                 ₦{user.accountBalance.toLocaleString()}
               </p>
               <p className="text-sm text-lendsqr-gray">{user.accountNumber}/{user.bankName}</p>
@@ -188,7 +188,7 @@ const UserDetails: React.FC = () => {
           </div>
           
           {/* Status */}
-          <div>
+          <div className="text-center lg:text-right">
             {getStatusBadge(user.status)}
           </div>
         </div>
@@ -196,8 +196,8 @@ const UserDetails: React.FC = () => {
 
       {/* Tabs */}
       <div className="lendsqr-card">
-        <div className="border-b border-border">
-          <nav className="flex space-x-8 px-6">
+        <div className="border-b border-border overflow-x-auto">
+          <nav className="flex space-x-4 md:space-x-8 px-4 md:px-6 min-w-max">
             {tabs.map((tab) => (
               <button
                 key={tab}
@@ -215,7 +215,7 @@ const UserDetails: React.FC = () => {
         </div>
 
         {/* Tab Content */}
-        <div className="p-6">
+        <div className="p-4 md:p-6">
           {activeTab === 'General Details' && (
             <div className="space-y-8">
               {/* Personal Information */}
