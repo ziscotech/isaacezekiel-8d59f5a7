@@ -129,20 +129,20 @@
 
 @layer components {
   .lendsqr-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8;
   }
   
   .lendsqr-card {
-    @apply bg-card rounded-[var(--radius)] shadow-[var(--shadow-card)] border border-border;
+    @apply bg-card rounded-[var(--radius)] shadow-[var(--shadow-card)] border border-border p-4 sm:p-6;
   }
   
   .lendsqr-btn-primary {
     @apply bg-[hsl(var(--primary))] text-primary-foreground hover:bg-[hsl(var(--primary-hover))] 
-           px-6 py-3 rounded-[var(--radius)] font-medium transition-colors shadow-[var(--shadow-primary)];
+           px-4 sm:px-6 py-2 sm:py-3 rounded-[var(--radius)] font-medium transition-colors shadow-[var(--shadow-primary)] text-sm sm:text-base;
   }
   
   .lendsqr-input {
-    @apply w-full px-3 py-2 border border-input rounded-[var(--radius)] 
-           focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent;
+    @apply w-full px-3 sm:px-4 py-2 sm:py-3 border border-input rounded-[var(--radius)] 
+           focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent text-sm sm:text-base;
   }
 }
